@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+background-color: #2B2B2B;
+color: #FFFFFF;
+}
+</style>
+  <head>
+    <meta charset="utf-8">
+    <title>show/hide DIV on selection of ANY drop-down value</title>
+    <style type="text/css">
+      .msg{
+        display: none;
+      }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("select").change(function(){
+            $(this).find("option:selected").each(function(){
+                var val = $(this).attr("value");
+                if(val){
+                    $(".msg").not("." + val).hide();
+                    $("." + val).show();
+                } else{
+                    $(".msg").hide();
+                }
+            });
+        }).change();
+    });
+    </script>
+  </head>
+  <body>
+<center>
+<img src="https://i.postimg.cc/fT3rVp4f/cmfdevlogowide.png" width="20%">
+<br>
+
+
+    <select>
+        <option>Choose color</option>
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+        <option value="brown">Brown</option>
+        <option value="green">Green</option>
+        <option value="pink">Pink</option>
+        <option value="purple">Purple</option>
+        <option value="red">Red</option>
+        <option value="turquoise">Turquoise</option>
+        <option value="white">White</option>
+        <option value="yellow">Yellow</option>
+    </select>
+<div style="font-family: 'Arial', sans-serif; font-size: 10em;">
+<div class="yellow msg"><b>#FFFF00</b></div>
+<div class="red msg"><b>#FF0000</b></div>
+<div class="green msg"><b>#00FF00</b></div>
+<div class="blue msg"><b>#0000FF</b></div>
+<div class="purple msg"><b>#800080</b></div>
+<div class="pink msg"><b>#FFC0CB</b></div>
+<div class="black msg"><b>#000000</b></div>
+<div class="brown msg"><b>#964B00</b></div>
+<div class="white msg"><b>#FFFFFF</b></div>
+<div class="turquoise msg"><b>#40E0D0</b></div>
+</div>
+</body>
+</html>
